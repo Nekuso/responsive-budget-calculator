@@ -1,11 +1,11 @@
 @mixin btnStyle {
     cursor: pointer;
+    display: flex;
     background: #FFFFFF;
     border-radius: 1rem;
     width: 100%;
     border: none;
     padding: 1rem;
-    display: flex;
     align-items: center;
     justify-content: center;
     font-size: .8rem;
@@ -37,9 +37,30 @@ img {
 
 
 .wrapper {
+    display: grid;
+    row-gap: 10px;
     max-width: 360px;
     margin: 0 auto;
-    display: grid;
+}
 
-    
+@media screen and (min-width: 768px) {
+
+    .navbar {
+        max-width: 750px;
+    }
+
+    .wrapper {
+        max-width: 750px;
+        max-height: 470px;
+        grid-template-columns: 50% 50%;
+        column-gap: 10px;
+
+        .status__container {
+            grid-template-rows: 13% 65% 18%;
+            
+
+            .total__container {
+            }
+        }
+    }
 }

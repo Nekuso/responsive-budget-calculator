@@ -7,6 +7,7 @@ import "./Styles/dist-css/App.css"
 const App = () => {
 
 
+
     return (
         <div className="app">
             <Navbar />
@@ -14,6 +15,7 @@ const App = () => {
                 <Dashboard />
                 <Status />
             </div>
+            
         </div>
     );
 }

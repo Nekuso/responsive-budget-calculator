@@ -1,7 +1,11 @@
 import React, {useState}from 'react';
+import UpdateBalancePopup from '../Popup/UpdateBalancePopup';
 import "../../Styles/dist-css/Dashboard.css"
 
 const Dashboard = () => {
+
+    const [buttonPopup, setbuttonPopup] = useState(false);
+
 
     return (
         <div className="dashboard">
@@ -23,7 +27,7 @@ const Dashboard = () => {
             </div>
 
             <div className="update__buttons">
-                <button className="update__balance">
+                <button onClick={() => setbuttonPopup(true)} className="update__balance">
                     <i class='bx bx-credit-card-front'></i>
                     Update Balance
                 </button>
@@ -44,6 +48,10 @@ const Dashboard = () => {
                 </button>
 
             </div>
+
+            <UpdateBalancePopup trigger={buttonPopup} setTrigger={setbuttonPopup}>
+                <h2>Update Balance</h2>
+            </UpdateBalancePopup>
 
         </div>
     );

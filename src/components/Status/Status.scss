@@ -1,0 +1,48 @@
+@import "../../Styles/App.scss";
+
+.status__container {
+    display: grid;
+    row-gap: 10px;
+    
+    .option__status {
+        display: flex;
+        background: #D3DDE9;
+        column-gap: 10px;
+        padding: .5rem;
+        border-radius: 1rem;
+        
+        button {
+            @include btnStyle;
+            background: none;
+            font-size:1rem;
+            font-weight: 600;
+            padding: .5rem;
+            border-radius: .5rem;
+        }
+    }
+    
+    .status {
+        width: 100%;
+        height: 305px;
+        max-height: 305px;
+        border-radius: 1rem;
+        background: #D3DDE9;
+    }
+    
+    .total__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #D3DDE9;
+        border-radius: 1rem;
+        padding: 1rem;
+
+        .total__text {
+            font-size: 1rem;
+        }
+
+        .total {
+            font-size: 2rem;
+        }
+    }
+}
