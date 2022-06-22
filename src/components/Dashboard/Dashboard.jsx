@@ -147,7 +147,7 @@ const Dashboard = (props) => {
                             <option value="img/wifi_Icon.png">
                                 <p>Wifi</p>
                             </option>
-                            <option value="img/netflix.png">
+                            <option value="img/netflix_Icon.png">
                                 <p>Netflix</p>
                             </option>
                             <option value="img/electricity_Icon.png">

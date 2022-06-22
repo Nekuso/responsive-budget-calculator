@@ -5,8 +5,15 @@ const AppReducer = (state, action) => {
         case 'ADD_EXPENSE':
             return {
                 ...state,
-                bills: [...state.bills, action.payload]
-            }
+                bills: [...state.bills, action.payload],
+            };
+        case 'DELETE_BILL':
+            return {
+                ...state,
+                bills: state.bills.filter(
+                    (bill) => bill.id !== action.payload
+                    ),
+            };
         default:
             return state;
     }

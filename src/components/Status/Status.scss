@@ -1,6 +1,6 @@
 @import "../../Styles/App.scss";
 
-.status__button__container {
+.status {
     display: grid;
     row-gap: 10px;
     
@@ -20,57 +20,62 @@
             border-radius: .5rem;
         }
     }
+
+    .bill__status {
+        display: grid;
+        row-gap: 10px;
+        .status__container {
+            border-radius: 1rem;
+            background: #D3DDE9;
+            padding: .5rem;
     
-    .status__container {
-        border-radius: 1rem;
-        background: #D3DDE9;
-        padding: .5rem;
-
-        .status {
-            display: block;
-            width: 100%;
-            height: 305px;
-            max-height: 305px;
-            overflow-y: scroll;
-            
-            &::-webkit-scrollbar {
-                width: 1px;
-                display: absolute;
-                // overflow: hidden;
-            }
-            
-            li {
-                display: flex;
-                border-radius: .5rem;
-                padding: .5rem;
-                background: #B7C7D9;
-                justify-content: space-between;
-                justify-items: center;
-                margin-bottom: 10px;
-
-                .icon__text {
-                    display: flex;
-                    column-gap: 10px;
-                    align-items: center;
-                    img {
-                        width: 30px;
-                    }
+            .status {
+                display: block;
+                width: 100%;
+                height: 305px;
+                max-height: 305px;
+                overflow-y: scroll;
+                
+                &::-webkit-scrollbar {
+                    width: 1px;
+                    display: absolute;
+                    // overflow: hidden;
                 }
                 
-                span {
+                li {
                     display: flex;
+                    border-radius: .5rem;
+                    padding: .5rem;
+                    background: #B7C7D9;
                     justify-content: space-between;
-                    align-items: center;
-
-                    i {
-                        cursor: pointer;
-                        font-size:1.5rem;
-                        margin-left: 10px;
+                    justify-items: center;
+                    margin-bottom: 10px;
+    
+                    .icon__text {
+                        display: flex;
+                        column-gap: 10px;
+                        align-items: center;
+                        img {
+                            width: 30px;
+                        }
+                    }
+                    
+                    span {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+    
+                        i {
+                            cursor: pointer;
+                            font-size:1.5rem;
+                            margin-left: 10px;
+                        }
                     }
                 }
             }
         }
     }
+    
     
     
     .total__container {

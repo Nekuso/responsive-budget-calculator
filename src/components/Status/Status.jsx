@@ -1,10 +1,10 @@
 import React from 'react'
 import "../../Styles/dist-css/Status.css"
-import BillList from "../Status/BillList/BillList"
+import BillStatus from './BillStatus/BillStatus'
 
 export default function Status() {
     return (
-        <div className="status__button__container">
+        <div className="status">
             <div className="option__status">
                 <button className="bills__status__btn">
                     Bills
@@ -17,15 +17,7 @@ export default function Status() {
                 </button>
             </div>
 
-            <ul className="status__container">
-                <BillList/>
-            </ul>
-
-            <div className="total__container">
-                <h2 className="total__text">Total</h2>
-                <h2 className="total">$138.00</h2>
-
-            </div>
+            <BillStatus />
 
         </div>
     )
