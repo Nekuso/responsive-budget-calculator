@@ -4,7 +4,7 @@ const BillItem = (props) => {
     return (
         <div>
             <li className="bill__item">
-                <div>
+                <div className="icon__text">
                 <img src={props.type} alt="" />
                 {props.name}
                 </div>

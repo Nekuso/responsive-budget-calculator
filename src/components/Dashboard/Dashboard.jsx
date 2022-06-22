@@ -2,10 +2,16 @@ import React, {useState, useContext}from 'react';
 import Popup from '../Popup/Popup';
 import "../../Styles/dist-css/Dashboard.css"
 import { AppContext } from '../../context/AppContext';
+import { v4 as uuidv4 } from 'uuid';
+
+
 
 const Dashboard = (props) => {
 
+    const {dispatch} = useContext(AppContext);
+
     const {balance}  = useContext(AppContext);
+    const {income}  = useContext(AppContext);
 
     const[type,setType] = useState("");
     const[name,setName] = useState("");
@@ -17,9 +23,33 @@ const Dashboard = (props) => {
     const [addBillButtonPopup, setaddBillButtonPopup] = useState(false);
     const [addExpenseButtonPopup, setaddExpenseButtonPopup] = useState(false);
 
-    const onSubmit = (event) => {
+
+    const onUpdateBalance = (event) => {
         event.preventDefault();
-        alert("name: " + name + "\n" + "cost: " + cost)
+        setUpdateBalanceButtonPopup(false)
+    }
+
+    const onUpdateIncome = (event) => {
+        event.preventDefault();
+        setUpdateIncomeButtonPopup(false)
+    }
+
+    const onAddBillSubmit = (event) => {
+        event.preventDefault();
+
+        const bills = {
+            id: uuidv4(),
+            type: type,
+            name: name,
+            cost: parseInt(cost)
+        }
+
+        dispatch({
+            type: 'ADD_EXPENSE',
+            payload: bills
+        })
+
+        setaddBillButtonPopup(false)
     }
 
 
@@ -39,7 +69,7 @@ const Dashboard = (props) => {
 
             <div className="income__container">
                 <p>Income</p>
-                <h3 className="income">$114.00</h3>
+                <h3 className="income">${income}</h3>
             </div>
 
             <div className="update__buttons">
@@ -68,54 +98,65 @@ const Dashboard = (props) => {
             <Popup trigger={updateBalanceButtonPopup} setTrigger={setUpdateBalanceButtonPopup}>
                 <h2>Update Balance</h2>
 
-                <div  className="update__input__container">
+                <form onSubmit={onUpdateBalance} className="update__input__container">
                     <div className="input__container">
                         <i class='bx bx-dollar-circle'></i>
-                        <input type="text" placeholder="New Balance" />
+                        <input 
+                        type="text" 
+                        placeholder="New Balance"
+                        />
                     </div>
-                    <button>Update</button>
-                </div>
+                    <button type="submit">Update</button>
+                </form>
 
             </Popup>
 
             <Popup trigger={updateIncomeButtonPopup} setTrigger={setUpdateIncomeButtonPopup}>
                 <h2>Update Income</h2>
 
-                <div  className="update__input__container">
+                <form onSubmit={onUpdateIncome}  className="update__input__container">
                     <div className="input__container">
                         <i class='bx bx-dollar-circle'></i>
                         <input type="text" placeholder="New Income" />
                     </div>
-                    <button>Update</button>
-                </div>
+                    <button type="submit" >Update</button>
+                </form>
             </Popup>
 
             <Popup trigger={addBillButtonPopup} setTrigger={setaddBillButtonPopup}>
                 <h2>Add Bill</h2>
                 <div className="add__container">
-                    <form onSubmit={onSubmit} className="add__input__container">
+                    <form onSubmit={onAddBillSubmit} className="add__input__container">
 
                         <label htmlFor="">Type</label>
-                        <select required="required" className="select__Type" name="categories" id="">
-                            <option value="/img/electricity.png">
+                        <select 
+                        value={type} 
+                        required="required" 
+                        className="select__Type" 
+                        name="categories"
+                        id=""
+                        onChange={(event) => setType (event.target.value)}
+                        >
+
+                            <option value="img/electricity_Icon.png">
                                 <p>Electricity</p>
                             </option>
-                            <option value="/img/water.png">
+                            <option value="img/water_Icon.png">
                                 <p>Water</p>
                             </option>
-                            <option value="/img/wifi_Icon.png">
+                            <option value="img/wifi_Icon.png">
                                 <p>Wifi</p>
                             </option>
-                            <option value="/img/netflix.png">
+                            <option value="img/netflix.png">
                                 <p>Netflix</p>
                             </option>
-                            <option value="/img/electricity.png">
+                            <option value="img/electricity_Icon.png">
                                 <p>Phone Bill</p>
                             </option>
-                            <option value="/img/electricity.png">
+                            <option value="img/electricity_Icon.png">
                                 <p>Debt</p>
                             </option>
-                            <option value="/img/electricity.png">
+                            <option value="img/electricity_Icon.png">
                                 <p>Other</p>
                             </option>
                         </select>

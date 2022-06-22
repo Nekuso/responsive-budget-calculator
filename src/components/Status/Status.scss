@@ -47,6 +47,15 @@
                 justify-content: space-between;
                 justify-items: center;
                 margin-bottom: 10px;
+
+                .icon__text {
+                    display: flex;
+                    column-gap: 10px;
+                    align-items: center;
+                    img {
+                        width: 30px;
+                    }
+                }
                 
                 span {
                     display: flex;
