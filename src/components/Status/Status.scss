@@ -1,6 +1,6 @@
 @import "../../Styles/App.scss";
 
-.status__container {
+.status__button__container {
     display: grid;
     row-gap: 10px;
     
@@ -21,13 +21,48 @@
         }
     }
     
-    .status {
-        width: 100%;
-        height: 305px;
-        max-height: 305px;
+    .status__container {
         border-radius: 1rem;
         background: #D3DDE9;
+        padding: .5rem;
+
+        .status {
+            display: block;
+            width: 100%;
+            height: 305px;
+            max-height: 305px;
+            overflow-y: scroll;
+            
+            &::-webkit-scrollbar {
+                width: 1px;
+                display: absolute;
+                // overflow: hidden;
+            }
+            
+            li {
+                display: flex;
+                border-radius: .5rem;
+                padding: .5rem;
+                background: #B7C7D9;
+                justify-content: space-between;
+                justify-items: center;
+                margin-bottom: 10px;
+                
+                span {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    i {
+                        cursor: pointer;
+                        font-size:1.5rem;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
     }
+    
     
     .total__container {
         display: flex;

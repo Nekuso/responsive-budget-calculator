@@ -1,13 +1,12 @@
 import React from 'react'
-import "../../Styles/dist-css/UpdateBalancePopup.css"
+import "../../Styles/dist-css/Popup.css"
 
-export default function UpdateBalancePopup(props) {
+export default function Popup(props) {
     return (props.trigger) ? (
         
         <div className="popup">
             <div className="popup__inner">
-                <button className="close__btn" onClick={() => props.setTrigger(false)}>close</button>
-
+                <i className='bx bxs-x-square close__btn' onClick={() => props.setTrigger(false)}></i>
                 {props.children}
             </div>
         </div>
