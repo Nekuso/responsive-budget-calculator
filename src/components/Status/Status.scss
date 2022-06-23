@@ -18,11 +18,6 @@
             font-weight: 600;
             padding: .5rem;
             border-radius: .5rem;
-            transition: .4s ease-in-out;
-            
-            &:hover {
-                background: #FFFF;
-            }
         }
     }
 
@@ -31,7 +26,6 @@
     .bill__status {
         display: grid;
         row-gap: 10px;
-        transition: .4s ease-in-out;
         .status__container {
             border-radius: 1rem;
             background: #D3DDE9;
@@ -138,6 +132,8 @@
             }
         }
     }
+    
+    
     
     .total__container {
         display: flex;
