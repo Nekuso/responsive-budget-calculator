@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
 import ExpenseList from '../ExpenseList/ExpenseList';
-import { AppContext2 } from '../../../context/AppContext2';
+import { AppContext } from '../../../context/AppContext';
 
 
 const ExpenseStatus = () => {
-    const {expenses} = useContext(AppContext2);
+    const {expenses} = useContext(AppContext);
 
 
     const totalExpenses = expenses.reduce((total, item) =>{
@@ -12,7 +12,7 @@ const ExpenseStatus = () => {
     }, 0);
 
     return (
-        <div className="bill__status">
+        <div className="expense__status">
             <ul className="status__container">
                 <ExpenseList/>
             </ul>

@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
-import { AppContext2 } from '../../../context/AppContext2';
+import { AppContext } from '../../../context/AppContext';
 
 const ExpenseItem = (props) => {
 
-    const {dispatch} = useContext(AppContext2);
+    const {dispatch} = useContext(AppContext);
 
     const handleDeleteExpense = () => {
         dispatch ({
