@@ -6,10 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 
-
 const Dashboard = (props) => {
-
-    const popup = document.querySelector("popup")
 
 
     const {balance, bills, expenses, userName, dispatch}  = useContext(AppContext);
@@ -37,7 +34,6 @@ const Dashboard = (props) => {
     const [addExpenseButtonPopup, setaddExpenseButtonPopup] = useState(false);
 
 
-
     const onAddName = (event) => {
         event.preventDefault();
         dispatch({
@@ -48,6 +44,7 @@ const Dashboard = (props) => {
         setUserName("")
         setAddNameButtonPopup(false)
     }
+
     const onUpdateBalance = (event) => {
         event.preventDefault();
         dispatch({
@@ -58,6 +55,7 @@ const Dashboard = (props) => {
         setBalanceValue("")
         setUpdateBalanceButtonPopup(false)
     }
+
     const onAddBillSubmit = (event) => {
         event.preventDefault();
 
@@ -125,54 +123,18 @@ const Dashboard = (props) => {
             </div>
 
             <div className="update__buttons">
-                <button onClick={
-                    () => {
-                        setTimeout(() =>{
-                            setUpdateBalanceButtonPopup(true)
-                        },300)
-
-                        setTimeout(() =>{
-                            popup.classList.add("show")
-                        },800)
-                    }
-                }
-                    className="update__balance">
+                <button onClick={() => setUpdateBalanceButtonPopup(true)} className="update__balance">
                     <i class='bx bx-credit-card-front'></i>
                     Update Budget
                 </button>
             </div>
 
             <div className="add__buttons">
-                <button onClick={
-                    () => {
-                        setTimeout(() =>{
-                            setaddBillButtonPopup(true)
-                        },300)
-                        
-                        setTimeout(() =>{
-                            popup.classList.add("show")
-                        },800)
-                    }
-                    
-                }
-                    
-                    className="add__bill">
+                <button onClick={() => setaddBillButtonPopup(true)} className="add__bill">
                     <i class='bx bxs-add-to-queue' ></i>
                     Add Bill
                 </button>
-                <button onClick={
-                    () => {
-                        setTimeout(() =>{
-                            setaddExpenseButtonPopup(true)
-                        },300)
-
-                        setTimeout(() =>{
-                            popup.classList.add("show")
-                        },800)
-                    }    
-                
-                }
-                className="add__expense">
+                <button onClick={() => setaddExpenseButtonPopup(true)} className="add__expense">
                     <i class='bx bxs-cart-add'></i>
                     Add expense
                 </button>

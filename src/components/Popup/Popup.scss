@@ -1,26 +1,24 @@
 @import "../../Styles/App.scss";
 
 .popup {
-    opacity: 0;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
     background: rgba(0,0,0,0.2);
-    transition: .4s ease-in-out;
-    
+
     display:flex;
     justify-content:center;
     align-items:center;
-    
+
     .popup__inner {
         border-radius: 1rem;
         position: relative;
         padding: 32px;
         width: 370px;
         background: #FFFF;
-        
+
         .close__btn {
             cursor: pointer;
             color: #d44e4e;
@@ -32,11 +30,6 @@
             border: none;
         }
     }
-}
-
-.show {
-    opacity: 1;
-    transition: .4s ease-in-out;
 }
 
 
