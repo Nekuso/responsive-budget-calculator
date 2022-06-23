@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 const Dashboard = (props) => {
 
 
-    const {balance, bills, expenses, dispatch}  = useContext(AppContext);
+    const {balance, bills, expenses, userName, dispatch}  = useContext(AppContext);
 
     const totalSpentBills = bills.reduce((total, item) => {
         return (total = total + item.cost)
@@ -22,15 +22,28 @@ const Dashboard = (props) => {
     
 
     const [balanceValue,setBalanceValue] = useState(props.balance)
+    const [nameValue,setUserName] = useState(props.userName)
 
     const[type,setType] = useState("");
     const[name,setName] = useState("");
     const[cost,setCost] = useState(0);
 
+    const [addNameButtonPopup, setAddNameButtonPopup] = useState(true);
     const [updateBalanceButtonPopup, setUpdateBalanceButtonPopup] = useState(false);
     const [addBillButtonPopup, setaddBillButtonPopup] = useState(false);
     const [addExpenseButtonPopup, setaddExpenseButtonPopup] = useState(false);
 
+
+    const onAddName = (event) => {
+        event.preventDefault();
+        dispatch({
+			type: 'SET_USERNAME',
+			payload: nameValue,
+		});
+
+        setUserName("")
+        setAddNameButtonPopup(false)
+    }
 
     const onUpdateBalance = (event) => {
         event.preventDefault();
@@ -82,29 +95,31 @@ const Dashboard = (props) => {
         setaddExpenseButtonPopup(false)
     }
 
-
     return (
         <div className="dashboard">
             
-            <div className="balance__container">
-                <div className="name__container">
-                    <h2 className="name">Logan Grace</h2>
-                    <img src="img/money.png" />
-                </div>
-                <div className="balance__text">
-                    <p>Budget</p>
-                    <h2 className="balance">${balance}</h2>
-                </div>
-            </div>
+            <div className="dashboard__infos">
 
-            <div className="spent__container">
-                <p>Spent so far</p>
-                <h3 className="spent">${totalSpentBills + totalSpentExpenses}</h3>
-            </div>
+                <div className="balance__container">
+                    <div className="name__container">
+                        <h2 className="name">{userName}</h2>
+                        <img src="img/money.png" />
+                    </div>
+                    <div className="balance__text">
+                        <p>Budget</p>
+                        <h2 className="balance">${balance}</h2>
+                    </div>
+                </div>
 
-            <div className="remaining__container">
-                <p>Remaining</p>
-                <h3 className="remaining">${balance - (totalSpentBills + totalSpentExpenses)}</h3>
+                <div className="spent__container">
+                    <p>Spent so far</p>
+                    <h3 className="spent">${totalSpentBills + totalSpentExpenses}</h3>
+                </div>
+
+                <div className="remaining__container">
+                    <p>Remaining</p>
+                    <h3 className="remaining">${balance - (totalSpentBills + totalSpentExpenses)}</h3>
+                </div>
             </div>
 
             <div className="update__buttons">
@@ -125,6 +140,24 @@ const Dashboard = (props) => {
                 </button>
 
             </div>
+
+            <Popup trigger={addNameButtonPopup} setTrigger={setAddNameButtonPopup}>
+                <h2>What's your Name?</h2>
+
+                <form onSubmit={onAddName} className="update__input__container">
+                    <div className="input__container">
+                        <i class='bx bx-user-circle'></i>
+                        <input 
+                        onChange={(event) => setUserName (event.target.value)}
+                        value={nameValue}
+                        type="text" 
+                        placeholder="New Name"
+                        />
+                    </div>
+                    <button type="submit">Update</button>
+                </form>
+
+            </Popup>
 
             <Popup trigger={updateBalanceButtonPopup} setTrigger={setUpdateBalanceButtonPopup}>
                 <h2>Update Budget</h2>
