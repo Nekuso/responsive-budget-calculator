@@ -1,23 +1,33 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "../../Styles/dist-css/Status.css"
 import BillStatus from './BillStatus/BillStatus'
+import ExpenseStatus from './ExpenseStatus/ExpenseStatus'
 
 export default function Status() {
+
+
+
+    const [active, setActive] = useState ("FirstButton")
+
     return (
         <div className="status">
             <div className="option__status">
-                <button className="bills__status__btn">
+                <button onClick={() => setActive("FirstButton")} className="bills__status__btn">
                     Bills
                 </button>
-                <button className="expenses__status__btn">
+                <button onClick={() => setActive("SecondButton")} className="expenses__status__btn">
                     Expenses
                 </button>
-                <button className="status__btn">
+                <button onClick={() => setActive("ThirdButton")} className="status__btn">
                     Stats
                 </button>
             </div>
 
-            <BillStatus />
+            <div className="status__container">
+                {active === "FirstButton" && <BillStatus />}
+                {active === "SecondButton" && <ExpenseStatus />}
+
+            </div>
 
         </div>
     )

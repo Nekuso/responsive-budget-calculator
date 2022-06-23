@@ -8,15 +8,16 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Dashboard = (props) => {
 
-    const {dispatch} = useContext(AppContext);
 
-    const {balance}  = useContext(AppContext);
+    const {balance,dispatch}  = useContext(AppContext);
     const {income}  = useContext(AppContext);
+
+    const [balanceValue,setBalanceValue] = useState(props.balance)
+    const [incomeValue,setIncomeValue] = useState(props.income)
 
     const[type,setType] = useState("");
     const[name,setName] = useState("");
     const[cost,setCost] = useState(0);
-
 
     const [updateBalanceButtonPopup, setUpdateBalanceButtonPopup] = useState(false);
     const [updateIncomeButtonPopup, setUpdateIncomeButtonPopup] = useState(false);
@@ -26,11 +27,21 @@ const Dashboard = (props) => {
 
     const onUpdateBalance = (event) => {
         event.preventDefault();
+        dispatch({
+			type: 'SET_BALANCE',
+			payload: balanceValue,
+		});
+
+        setBalanceValue("")
         setUpdateBalanceButtonPopup(false)
     }
 
     const onUpdateIncome = (event) => {
         event.preventDefault();
+        dispatch({
+			type: 'SET_INCOME',
+			payload: incomeValue,
+		});
         setUpdateIncomeButtonPopup(false)
     }
 
@@ -49,6 +60,8 @@ const Dashboard = (props) => {
             payload: bills
         })
 
+        setName("")
+        setCost("")
         setaddBillButtonPopup(false)
     }
 
@@ -102,6 +115,8 @@ const Dashboard = (props) => {
                     <div className="input__container">
                         <i class='bx bx-dollar-circle'></i>
                         <input 
+                        onChange={(event) => setBalanceValue (event.target.value)}
+                        value={balanceValue}
                         type="text" 
                         placeholder="New Balance"
                         />
@@ -117,7 +132,10 @@ const Dashboard = (props) => {
                 <form onSubmit={onUpdateIncome}  className="update__input__container">
                     <div className="input__container">
                         <i class='bx bx-dollar-circle'></i>
-                        <input type="text" placeholder="New Income" />
+                        <input 
+                        type="text" 
+                        onChange={(event) => setIncomeValue (event.target.value)}
+                        placeholder="New Income" />
                     </div>
                     <button type="submit" >Update</button>
                 </form>

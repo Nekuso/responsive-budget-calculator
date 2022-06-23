@@ -1,13 +1,13 @@
 import React, {useContext} from 'react';
-import { AppContext } from '../../../context/AppContext';
+import { AppContext2 } from '../../../context/AppContext2';
 
-const BillItem = (props) => {
+const ExpenseItem = (props) => {
 
-    const {dispatch} = useContext(AppContext);
+    const {dispatch} = useContext(AppContext2);
 
-    const handleDeleteBill = () => {
+    const handleDeleteExpense = () => {
         dispatch ({
-            type: 'DELETE_BILL',
+            type: 'DELETE_EXPENSE',
             payload: props.id,
         });
     }
@@ -20,7 +20,7 @@ const BillItem = (props) => {
                 {props.name}
                 </div>
                 <span>${props.cost}
-                <i onClick={handleDeleteBill} className='bx bxs-x-square close__btn'></i>
+                <i onClick={handleDeleteExpense} className='bx bxs-x-square close__btn'></i>
                 </span>
 
             </li>
@@ -28,4 +28,4 @@ const BillItem = (props) => {
     );
 }
 
-export default BillItem;
+export default ExpenseItem;
