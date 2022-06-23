@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import "../../Styles/dist-css/Status.css"
 import BillStatus from './BillStatus/BillStatus'
 import ExpenseStatus from './ExpenseStatus/ExpenseStatus'
+import StatusGraph from './StatsGraph/StatusGraph'
 
 export default function Status() {
 
@@ -26,6 +27,7 @@ export default function Status() {
             <div className="status__container">
                 {active === "FirstButton" && <BillStatus />}
                 {active === "SecondButton" && <ExpenseStatus />}
+                {active === "ThirdButton" && <StatusGraph />}
 
             </div>
 
