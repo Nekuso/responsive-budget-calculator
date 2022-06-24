@@ -1,6 +1,7 @@
 @import "../../Styles/App.scss";
 
 .popup {
+    z-index: 999;
     opacity: 0;
     position: fixed;
     top: 0;

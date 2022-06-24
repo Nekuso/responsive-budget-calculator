@@ -6,11 +6,14 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 
-
 const Dashboard = (props) => {
 
     const popup = document.querySelector("popup")
 
+    function play() {
+        var audio = new Audio("sound/click.mp3")
+        audio.play()
+    }
 
     const {balance, bills, expenses, userName, dispatch}  = useContext(AppContext);
 
@@ -44,7 +47,8 @@ const Dashboard = (props) => {
 			type: 'SET_USERNAME',
 			payload: nameValue,
 		});
-
+        
+        play()
         setUserName("")
         setAddNameButtonPopup(false)
     }
@@ -55,6 +59,7 @@ const Dashboard = (props) => {
 			payload: balanceValue,
 		});
 
+        play()
         setBalanceValue("")
         setUpdateBalanceButtonPopup(false)
     }
@@ -73,6 +78,7 @@ const Dashboard = (props) => {
             payload: bills
         })
 
+        play()
         setName("")
         setCost("")
         setaddBillButtonPopup(false)
@@ -91,7 +97,8 @@ const Dashboard = (props) => {
             type: 'ADD_EXPENSE',
             payload: expenses
         })
-
+        
+        play()
         setName("")
         setCost("")
         setaddExpenseButtonPopup(false)
@@ -105,7 +112,7 @@ const Dashboard = (props) => {
                 <div className="balance__container">
                     <div className="name__container">
                         <h2 className="name">{userName}</h2>
-                        <img src="img/money.png" />
+                        <img src="img/unicorn.png" />
                     </div>
                     <div className="balance__text">
                         <p>Budget</p>
@@ -127,6 +134,7 @@ const Dashboard = (props) => {
             <div className="update__buttons">
                 <button onClick={
                     () => {
+                        play()
                         setTimeout(() =>{
                             setUpdateBalanceButtonPopup(true)
                         },300)
@@ -145,6 +153,7 @@ const Dashboard = (props) => {
             <div className="add__buttons">
                 <button onClick={
                     () => {
+                        play()
                         setTimeout(() =>{
                             setaddBillButtonPopup(true)
                         },300)
@@ -162,6 +171,7 @@ const Dashboard = (props) => {
                 </button>
                 <button onClick={
                     () => {
+                        play()
                         setTimeout(() =>{
                             setaddExpenseButtonPopup(true)
                         },300)
@@ -186,7 +196,10 @@ const Dashboard = (props) => {
                     <div className="input__container">
                         <i class='bx bx-user-circle'></i>
                         <input 
-                        onChange={(event) => setUserName (event.target.value)}
+                        required="required" 
+                        onChange={(event) => {
+                            play()
+                            setUserName (event.target.value)}}
                         value={nameValue}
                         type="text" 
                         placeholder="New Name"
@@ -204,7 +217,10 @@ const Dashboard = (props) => {
                     <div className="input__container">
                         <i class='bx bx-dollar-circle'></i>
                         <input 
-                        onChange={(event) => setBalanceValue (event.target.value)}
+                        required="required" 
+                        onChange={(event) => {
+                            play()
+                            setBalanceValue (event.target.value)}}
                         value={balanceValue}
                         type="text" 
                         placeholder="New Budget"
@@ -242,13 +258,22 @@ const Dashboard = (props) => {
                             <option value="img/netflix_Icon.png">
                                 <p>Netflix</p>
                             </option>
-                            <option value="img/electricity_Icon.png">
+                            <option value="img/phone_bill_Icon.png">
                                 <p>Phone Bill</p>
                             </option>
-                            <option value="img/electricity_Icon.png">
+                            <option value="img/tuition_Icon.png">
+                                <p>Tuition</p>
+                            </option>
+                            <option value="img/insurance_Icon.png">
+                                <p>Insurance</p>
+                            </option>
+                            <option value="img/rent_Icon.png">
+                                <p>Rent</p>
+                            </option>
+                            <option value="img/depth_Icon.png">
                                 <p>Debt</p>
                             </option>
-                            <option value="img/electricity_Icon.png">
+                            <option value="img/other_Icon.png">
                                 <p>Other</p>
                             </option>
                         </select>
@@ -293,25 +318,43 @@ const Dashboard = (props) => {
                         onChange={(event) => setType (event.target.value)}
                         >
 
-                            <option value="img/electricity_Icon.png">
-                                <p>Electricity</p>
+                            <option value="img/food_Icon.png">
+                                <p>Food</p>
                             </option>
-                            <option value="img/water_Icon.png">
-                                <p>Water</p>
+                            <option value="img/snacks_Icon.png">
+                                <p>Snack</p>
                             </option>
-                            <option value="img/wifi_Icon.png">
-                                <p>Wifi</p>
+                            <option value="img/savings_Icon.png">
+                                <p>Savings</p>
                             </option>
-                            <option value="img/netflix_Icon.png">
-                                <p>Netflix</p>
+                            <option value="img/movies_Icon.png">
+                                <p>Movies</p>
                             </option>
-                            <option value="img/electricity_Icon.png">
-                                <p>Phone Bill</p>
+                            <option value="img/transportation_Icon.png">
+                                <p>Transportation</p>
                             </option>
-                            <option value="img/electricity_Icon.png">
-                                <p>Debt</p>
+                            <option value="img/membership_Icon.png">
+                                <p>Membership</p>
                             </option>
-                            <option value="img/electricity_Icon.png">
+                            <option value="img/gas_Icon.png">
+                                <p>Gas</p>
+                            </option>
+                            <option value="img/utilities_Icon.png">
+                                <p>Utilities</p>
+                            </option>
+                            <option value="img/beauty_Icon.png">
+                                <p>Beauty</p>
+                            </option>
+                            <option value="img/gadgets_Icon.png">
+                                <p>Gadget</p>
+                            </option>
+                            <option value="img/clothing_Icon.png">
+                                <p>Clothing</p>
+                            </option>
+                            <option value="img/entertainment_Icon.png">
+                                <p>Entertainment</p>
+                            </option>
+                            <option value="img/other_expense_Icon.png">
                                 <p>Other</p>
                             </option>
                         </select>
