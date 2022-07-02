@@ -11,7 +11,7 @@ export default function Navbar() {
     return (
         <div className="navbar">
             <h1>CalcMe</h1>
-            <a onClick={play()} href="https://github.com/Nekuso" target="_blank"><i class='bx bxl-github'></i>Github</a>
+            <a onClick={play()} href="https://github.com/Nekuso" target="_blank"><i className='bx bxl-github'></i>Github</a>
         </div>
     )
 }

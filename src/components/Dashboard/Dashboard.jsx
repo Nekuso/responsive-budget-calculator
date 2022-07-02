@@ -145,7 +145,7 @@ const Dashboard = (props) => {
                     }
                 }
                     className="update__balance">
-                    <i class='bx bx-credit-card-front'></i>
+                    <i className='bx bx-credit-card-front'></i>
                     Update Budget
                 </button>
             </div>
@@ -166,7 +166,7 @@ const Dashboard = (props) => {
                 }
                     
                     className="add__bill">
-                    <i class='bx bxs-add-to-queue' ></i>
+                    <i className='bx bxs-add-to-queue' ></i>
                     Add Bill
                 </button>
                 <button onClick={
@@ -183,7 +183,7 @@ const Dashboard = (props) => {
                 
                 }
                 className="add__expense">
-                    <i class='bx bxs-cart-add'></i>
+                    <i className='bx bxs-cart-add'></i>
                     Add expense
                 </button>
 
@@ -194,7 +194,7 @@ const Dashboard = (props) => {
 
                 <form onSubmit={onAddName} className="update__input__container">
                     <div className="input__container">
-                        <i class='bx bx-user-circle'></i>
+                        <i className='bx bx-user-circle'></i>
                         <input 
                         required="required" 
                         onChange={(event) => {
@@ -215,7 +215,7 @@ const Dashboard = (props) => {
 
                 <form onSubmit={onUpdateBalance} className="update__input__container">
                     <div className="input__container">
-                        <i class='bx bx-dollar-circle'></i>
+                        <i className='bx bx-dollar-circle'></i>
                         <input 
                         required="required" 
                         onChange={(event) => {
