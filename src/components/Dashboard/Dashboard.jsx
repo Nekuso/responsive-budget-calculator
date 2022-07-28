@@ -189,7 +189,7 @@ const Dashboard = (props) => {
 
             </div>
 
-            <Popup trigger={addNameButtonPopup} setTrigger={setAddNameButtonPopup}>
+            {userName === "" && <Popup trigger={addNameButtonPopup} setTrigger={setAddNameButtonPopup}>
                 <h2>What's your Name?</h2>
 
                 <form onSubmit={onAddName} className="update__input__container">
@@ -208,7 +208,7 @@ const Dashboard = (props) => {
                     <button type="submit">Update</button>
                 </form>
 
-            </Popup>
+            </Popup>}
 
             <Popup trigger={updateBalanceButtonPopup} setTrigger={setUpdateBalanceButtonPopup}>
                 <h2>Update Budget</h2>

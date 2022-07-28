@@ -10,6 +10,7 @@ const App = () => {
 
     return (
         <AppProvider>
+            
         <div className="app">
             <Navbar />
             <div className="wrapper">

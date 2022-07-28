@@ -1,6 +1,4 @@
 import {createContext, useEffect, useReducer} from 'react'
-import { v4 as uuidv4 } from 'uuid'
-
 
 // 5. The reduceer - this is used to update the state, based on the action
 const AppReducer = (state, action) => {
@@ -45,7 +43,7 @@ const AppReducer = (state, action) => {
 }
 
 // 1. Sets the initial state for Bills when the app loads
-const initialState = {
+export const initialState = {
     userName: "",
     balance: 0,
     spent: 0,
@@ -74,7 +72,9 @@ export const AppProvider = (props) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
     
     useEffect(() => {
-        localStorage.setItem('state', JSON.stringify({state, dispatch}))
+        localStorage.setItem('state', JSON.stringify({state}));
+        
+        console.log(state)
     }, [state])
     
     // 5. Returns our context. Pass in the values we want to expose
