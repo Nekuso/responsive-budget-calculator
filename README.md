@@ -14,7 +14,5 @@
 - Sort by Bills and Expenses
 - Costumized type of Bill and Expense
 
-
-
 ![preview img](/preview.png)
 ![preview img](/preview2.png)
