@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/responsive-budget-calculator/static/css/main.133de4e3.css",
-    "main.js": "/responsive-budget-calculator/static/js/main.b2323eec.js",
+    "main.js": "/responsive-budget-calculator/static/js/main.a898774a.js",
     "index.html": "/responsive-budget-calculator/index.html",
     "main.133de4e3.css.map": "/responsive-budget-calculator/static/css/main.133de4e3.css.map",
-    "main.b2323eec.js.map": "/responsive-budget-calculator/static/js/main.b2323eec.js.map"
+    "main.a898774a.js.map": "/responsive-budget-calculator/static/js/main.a898774a.js.map"
   },
   "entrypoints": [
     "static/css/main.133de4e3.css",
-    "static/js/main.b2323eec.js"
+    "static/js/main.a898774a.js"
   ]
 }
